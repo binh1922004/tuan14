@@ -70,7 +70,7 @@ public class WebSecurityConfig {
                                                 ("ADMIN", "EDITOR")
                                         .requestMatchers("/delete/**").hasAuthority("ADMIN")
                                         .requestMatchers (HttpMethod.GET, "/api/**").permitAll()
-                                        .requestMatchers("/api/**").permitAll()
+                                        .requestMatchers(HttpMethod.POST, "/api/**").permitAll()
                                         .anyRequest().authenticated())
                         .httpBasic(Customizer.withDefaults())
                         .formLogin(login -> login.loginPage("/login").permitAll())

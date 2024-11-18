@@ -44,9 +44,9 @@ public class AuthController {
 
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
-        }@PostMapping("/signup")
+        }
+        @PostMapping("/signup")
         public ResponseEntity<?> registerUser(@RequestBody SignupDto signUpDto){
-
                 // add check for username exists in a DB
                 if(userRepository.existsByUsername(signUpDto.getUsername())){
                         return new ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST);
